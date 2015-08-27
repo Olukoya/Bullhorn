@@ -10,7 +10,6 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name="Bullhorn", schema= "TESTDB")
 @NamedQuery(name="Bullhorn.findAll", query="SELECT b FROM Bullhorn b")
 public class Bullhorn implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,10 +24,10 @@ public class Bullhorn implements Serializable {
 	@Column(name="POST_DATE")
 	private Date postDate;
 
-	@Column(name="USER_PASSWORD")
-	private String userPassword;
-
-	private String username;
+	//bi-directional many-to-one association to BullhornProfile
+	@ManyToOne
+	@JoinColumn(name="USERNAME")
+	private BullhornProfile bullhornProfile;
 
 	public Bullhorn() {
 	}
@@ -57,20 +56,12 @@ public class Bullhorn implements Serializable {
 		this.postDate = postDate;
 	}
 
-	public String getUserPassword() {
-		return this.userPassword;
+	public BullhornProfile getBullhornProfile() {
+		return this.bullhornProfile;
 	}
 
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
-	}
-
-	public String getUsername() {
-		return this.username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setBullhornProfile(BullhornProfile bullhornProfile) {
+		this.bullhornProfile = bullhornProfile;
 	}
 
 }

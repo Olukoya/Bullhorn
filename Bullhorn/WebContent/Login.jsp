@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Post</title>
+  <title>Login</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -28,17 +28,14 @@
   </div>
 </nav>
 <div class="container">
-<H1>What's on your mind!</H1>
-</div>
-<div class="container">
 <form action= "Post" method= "POST">
 	<div class="form-group">
 	  <label for="username">Username: </label>
 	  <input type="text" class="form-control" id="username" name= "username">
 	</div>
 	<div class="form-group">
-      <label for="comment">Comment:</label>
-      <textarea class="form-control" rows="5" maxlength= "140" id="comment" name="comment"> </textarea>
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name= "password">
     </div>  
  	<div class="form-group">
  	<button type="submit" class="btn btn-primary btn-md" name="submitpost" id="submitpost">Submit</button>
