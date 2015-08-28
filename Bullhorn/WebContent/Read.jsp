@@ -30,6 +30,7 @@
 <div class="container-fluid">
 
 ${message}
+${all}
 
 </div>
 </body>

@@ -1,7 +1,9 @@
 package model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 
 
@@ -10,6 +12,7 @@ import java.util.Date;
  * 
  */
 @Entity
+@Table(name="BULLHORN", schema= "TESTDB")
 @NamedQuery(name="Bullhorn.findAll", query="SELECT b FROM Bullhorn b")
 public class Bullhorn implements Serializable {
 	private static final long serialVersionUID = 1L;

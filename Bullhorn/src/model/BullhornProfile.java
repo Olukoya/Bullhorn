@@ -11,7 +11,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="BULLHORN_PROFILE")
+@Table(name="BULLHORN_PROFILE", schema= "TESTDB")
 @NamedQuery(name="BullhornProfile.findAll", query="SELECT b FROM BullhornProfile b")
 public class BullhornProfile implements Serializable {
 	private static final long serialVersionUID = 1L;

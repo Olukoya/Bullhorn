@@ -33,11 +33,7 @@
 <div class="container">
 <form action= "Post" method= "POST">
 	<div class="form-group">
-	  <label for="username">Username: </label>
-	  <input type="text" class="form-control" id="username" name= "username">
-	</div>
-	<div class="form-group">
-      <label for="comment">Comment:</label>
+      <label for="comment">Bullhorn Post:</label>
       <textarea class="form-control" rows="5" maxlength= "140" id="comment" name="comment"> </textarea>
     </div>  
  	<div class="form-group">

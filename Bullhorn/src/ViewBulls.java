@@ -16,43 +16,33 @@ import model.BullhornProfile;
 import customTools.DBUtil;
 
 /**
- * Servlet implementation class Post
+ * Servlet implementation class ViewBulls
  */
-@WebServlet("/Post")
-public class Post extends HttpServlet {
+@WebServlet("/ViewBulls")
+public class ViewBulls extends HttpServlet {
 	static String use;
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Post() {
+    public ViewBulls() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
-		
-		HttpSession session = req.getSession();
-		session.setAttribute("username", req.getParameter("username"));
-		session.setAttribute("password", req.getParameter("password"));
-		
-		boolean login = grabUser.validity(req.getParameter("username"), req.getParameter("password"));
-		if (login == true)
-		{
-			getServletContext().getRequestDispatcher("/Write.jsp").forward(req, res);
-		}
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		HttpSession session = req.getSession();
+	/*	HttpSession session = req.getSession();
 		
 		
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
@@ -71,7 +61,9 @@ public class Post extends HttpServlet {
 		cust.setBullhornProfile(profile2);
 		Insert.insert(cust);
 		
-		
+		*/
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		model.Bullhorn cust = new Bullhorn();
 		// get the list of values to display
 	    String line = "<table class=" 
         		+ "\"table table-striped\"" 
@@ -83,9 +75,10 @@ public class Post extends HttpServlet {
  			+"<th>" + "Posts" + "</th> <br>"
  			+ "</tr>"
  			;
-		//  +"<td>"+"<a href =" + "\"Details?type=" +type+"\"" + ">" + type +"</a>"+"</td>"
+		
         for(int i=0; i<Insert.selectPost().size(); i++){
-		 use = Insert.selectPost().get(i).getBullhornProfile().getUsername();
+        	 use = Insert.selectPost().get(i).getBullhornProfile().getUsername();
+			
 		
         	line += "<tr>" 
         			+"<td>" +"<a href =" +"\"Read?use=" +use+"\""+">"+ use +"</a>"+"</td>"
@@ -95,11 +88,9 @@ public class Post extends HttpServlet {
         	}
         
         	line += "</table>";
-		req.setAttribute("message", line);
+		req.setAttribute("all", line);
 		getServletContext().getRequestDispatcher("/Read.jsp").forward(req, res);
 		
 	}
 
-	}
-
-
+}
