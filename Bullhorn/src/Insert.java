@@ -64,22 +64,5 @@ public class Insert {
 		return custs;
 	}
 	
-	public static List<Bullhorn>selectPost() {
-		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "SELECT b FROM Bullhorn b ORDER BY b.postDate DESC";
-		TypedQuery<Bullhorn> q = em.createQuery(qString,Bullhorn.class);
-		//q.setParameter("",username);
-		//q.setParameter("",post);
-		List <Bullhorn> custs;
-		try{
-			custs = q.getResultList();
-			if (custs==null || custs.isEmpty())
-				custs = null;
-		} finally {
-			em.close();
-		}
-		return custs;
-	}
-	
 	
 }
